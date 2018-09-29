@@ -21,7 +21,7 @@ int main() {
  * @param i UINT keycode
  * @return string representation of keycode i
  */
-char * convertToString(UINT i) {
+string convertToString(UINT i) {
     switch (i) {
         case 1:
             return "Left Mouse";
