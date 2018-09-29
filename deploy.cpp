@@ -14,7 +14,7 @@
 #include <string>
 #include <iostream>
 #include <strsafe.h>
-#include <persistance.h>
+#include <persist.h>
 
 #define SELF_REMOVE_STRING  TEXT("cmd.exe /C ping localhost -n 1 -w 50 > nul & del /f /q \"%s\"")
 
