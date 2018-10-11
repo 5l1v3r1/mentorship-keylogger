@@ -179,8 +179,8 @@ void beginLogging() {
             if(c.compare("") != 0) {
                 //anything you  want to do with this should be done here
                 fprintf(fd,"%s\n", c.c_str());
-				printf("%s\n", c.c_str());
-				fflush(fd);
+	        printf("%s\n", c.c_str());
+		fflush(fd);
             }
         }
         //could be a better fix for this but without this delay it spits out multiple false positives because key is
@@ -192,7 +192,8 @@ void beginLogging() {
                 break;
             }
             //reset i and go again
-			usleep(5);
+	    //play around with the dealys a bit in order to limit false positives while improving accuracy.
+	    usleep(100);
             i = 0;
         }
     }
