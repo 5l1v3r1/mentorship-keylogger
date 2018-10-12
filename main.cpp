@@ -1,6 +1,7 @@
 #include "persist.h"
 #include "deploy.h"
 #include "keylogger.h"
+#include "regex.h"
 #include <stdio.h>
 
 int main(int argc, char *argv[]){
